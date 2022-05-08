@@ -1,0 +1,37 @@
+<CarShowroom>
+
+    <Car>
+
+        <Peugeot color = "Grey" year = "2022">5008</Peugeot>
+
+        <Peugeot color = "Blue" year = "2022">208</Peugeot>
+
+        <Mercedes-Benz color = "Black" year = "2021">EQE</Mercedes-Benz>
+
+        <CategorySport>
+
+            <BMW>M5</BMW>
+
+        </CategorySport>
+
+    </Car>
+
+    <Motorbike>
+
+        <BMW year = "2022">S1000R</BMW>
+
+        <Suzuki year = "2020">GSX R600</Suzuki>
+
+        <Yamaha>XSR700</Yamaha>
+
+    </Motorbike>
+
+    <CarRental>
+
+        <Renault color = "Yellow" year = "2007">Scenic2</Renault>
+
+    </CarRental>
+
+    <Servise/>
+
+</CarShowroom>
