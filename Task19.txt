@@ -1,0 +1,44 @@
+{
+  "Family":[
+  {
+  "Family mamber":"Dad",
+  "name":"Dima",
+  "age":34,
+  "country":"Ukraine",
+  "sity":"Chernigov",
+  "profession":"manager"
+  },
+  {
+  "Family mamber":"Mom",
+  "name":"Marina",
+  "age":35,
+  "country":"Ukraine",
+  "sity":"Chernigov",
+  "profession":"temporarily unemployed"
+  },
+  {
+  "Family mamber":"Son",
+  "name":"Slava",
+  "age":7,
+  "country":"Ukraine",
+  "sity":"Chernigov",
+  "profession":"schoolboy"
+  },
+  {
+  "Family mamber":"Grandmother",
+  "name":"Lyda",
+  "age":62,
+  "country":"Spain",
+  "sity":"Tenerife",
+  "profession":"retiree"
+  },
+  {
+  "Family mamber":"Grandpa",
+  "name":"Felix",
+  "age":78,
+  "country":"Spain",
+  "sity":"Tenerife",
+  "profession":"retiree"
+  }
+  ]
+}
