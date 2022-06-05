@@ -1,0 +1,118 @@
+CREATE TABLE Students
+(
+	StudentId int IDENTITY NOT NULL PRIMARY KEY,
+	StudentName varchar(30) NOT NULL,
+    StudentSurname varchar(30) NOT NULL,
+	Age int NOT NULL,
+	Gender varchar(10) NOT NULL,
+	GroupId int NOT NULL FOREIGN KEY REFERENCES Groups(GroupId)
+)
+
+SELECT TOP (1000) [StudentId]
+      ,[StudentName]
+      ,[StudentSurname]
+      ,[Age]
+      ,[Gender]
+      ,[GroupId]
+  FROM [University].[dbo].[Students]
+
+  INSERT INTO Students (StudentName, StudentSurname, Age, Gender, GroupId) VALUES
+  ('Slava', 'Svoy', 18, 'man', 2),
+  ('Maryna', 'Svoya', 23, 'woman', 2),
+  ('Danila', 'Sky', 31, 'man', 1),
+  ('Diana', 'Train', 24, 'woman', 3),
+  ('Lena', 'Shvec', 24, 'woman', 1),
+  ('Gena', 'Nash', 37, 'man', 4),
+  ('Dima', 'Bad', 23, 'man', 4),
+  ('Nicolay', 'Teslo', 27, 'man', 3),
+  ('Andrey', 'Azov', 33, 'man', 4),
+  ('Konstantin', 'Yurist', 29, 'man', 2)
+
+  DROP TABLE Students
+
+  CREATE TABLE Faculties
+(
+	FacultyId int IDENTITY NOT NULL PRIMARY KEY,
+	FacultyName varchar(20) NOT NULL,
+)
+
+SELECT TOP (1000) [FacultyId]
+      ,[FacultyName]
+  FROM [University].[dbo].[Faculties]
+
+INSERT INTO Faculties (FacultyName) VALUES
+('Management'),
+('Mathematical'),
+('Military')
+
+
+DROP TABLE Faculties
+
+CREATE TABLE Groups
+(
+	GroupId int IDENTITY NOT NULL PRIMARY KEY,
+    GroupNumber int NOT NULL,
+	FacultyId int NOT NULL FOREIGN KEY REFERENCES Faculties(FacultyId)
+)
+
+
+INSERT INTO Groups(GroupNumber, FacultyId) VALUES
+(1, 1),
+(2, 1),
+(1, 2),
+(1, 3)
+
+SELECT TOP (1000) [GroupId]
+      ,[GroupNumber]
+      ,[FacultyId]
+  FROM [University].[dbo].[Groups]
+
+DROP TABLE Groups
+
+CREATE TABLE Teachers
+(
+	TeacherId int IDENTITY NOT NULL PRIMARY KEY,
+	TecherName varchar(15) NOT NULL,
+	TecherSurname varchar(15) NOT NULL,
+	FacultyId int NOT NULL FOREIGN KEY REFERENCES Faculties(FacultyId),
+	GroupId int NOT NULL FOREIGN KEY REFERENCES Groups(GroupId)
+)
+
+INSERT INTO Teachers (TecherName, TecherSurname, FacultyId, GroupId) VALUES
+('Svetlana', 'Polykova', 1, 1),
+('Nina', 'Polykova', 1, 2), 
+('Maksim', 'Pifogor', 2, 3),
+('Anatoliy', 'Oborona', 3, 4)
+
+SELECT TOP (1000) [TeacherId]
+      ,[TecherName]
+      ,[TecherSurname]
+      ,[FacultyId]
+      ,[GroupId]
+  FROM [University].[dbo].[Teachers]
+
+DROP TABLE Teachers
+
+
+ SELECT * FROM Students WHERE Gender = 'woman'
+ SELECT * FROM Students WHERE GroupId = 4
+  SELECT * FROM Students WHERE StudentName LIKE 'D%'
+  SELECT * FROM Students
+  SELECT * FROM Faculties
+  SELECT * FROM Groups
+  SELECT * FROM Teachers
+  SELECT Age, Count(Age) FROM Students GROUP BY Age
+  SELECT Gender, Avg(StudentId) FROM Students GROUP BY Gender
+  SELECT Age, Count(Age) FROM Students GROUP BY Age HAVING Age >23
+  SELECT Age, Count(Age) FROM Students GROUP BY Age HAVING Age <31
+  SELECT Gender, Max(GroupId) FROM Students GROUP BY Gender
+  SELECT Gender, Min(GroupId) FROM Students GROUP BY Gender
+  SELECT * FROM Students ORDER BY GroupId
+   SELECT * FROM Students ORDER BY Age
+   SELECT * FROM Students ORDER BY Age DESC
+   SELECT * FROM Teachers Join Groups on Teachers.GroupId = Groups.GroupId
+   SELECT * FROM Students Join Teachers on Students.GroupId = Teachers.GroupId
+   SELECT * FROM Students Left Join Teachers on Students.GroupId = Teachers.GroupId
+   SELECT * FROM Teachers Right Join Students on Students.GroupId = Teachers.GroupId
+   SELECT * FROM Teachers Join Faculties on Teachers.FacultyId = Faculties.FacultyId
+   SELECT * FROM Students Join Groups on Students.GroupId = Groups.GroupId
